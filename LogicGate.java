@@ -4,4 +4,7 @@ public class LogicGate {
         return a && b;
     }
 
+    public static boolean or(boolean a, boolean b) {
+        return a || b;
+    }
 }
