@@ -12,4 +12,7 @@ public class LogicGate {
         return !a;
     }
 
+    public static boolean nand(boolean a, boolean b) {
+        return not(and(a,b));
+    }
 }
