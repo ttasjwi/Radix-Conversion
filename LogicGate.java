@@ -19,4 +19,8 @@ public class LogicGate {
     public static boolean nor(boolean a, boolean b) {
         return not(or(a,b));
     }
+
+    public static boolean xor(boolean a, boolean b) {
+        return a != b;
+    }
 }

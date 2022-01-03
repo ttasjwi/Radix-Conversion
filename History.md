@@ -52,4 +52,11 @@ LogicGate 클래스 : 논리게이트의 역할을 하는 메서드 모음.
   - 두개의 boolean 인자 중 적어도 하나가 true일때 false가 반환됨.
   - 두개의 boolean 인자 모두 false 일 때 true가 반환됨.
 
+### xor 메서드 추가
+
+논리회로의 xor 역할을 수행하는 xor 메서드를 추가했다.  
+
+- xor 메서드
+  - 입력된 `boolean` 인자가 서로 다르면 true를 반환한다.
+
 ---
