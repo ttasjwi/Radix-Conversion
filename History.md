@@ -59,7 +59,6 @@ LogicGate 클래스 : 논리게이트의 역할을 하는 메서드 모음.
 - xor 메서드
   - 입력된 `boolean` 인자가 서로 다르면 true를 반환한다.
 
-
 ### xnor 메서드 추가
 
 논리회로의 xnor 역할을 수행하는 xnor 메서드를 추가했다.
@@ -67,5 +66,12 @@ LogicGate 클래스 : 논리게이트의 역할을 하는 메서드 모음.
 - xnor 메서드
   - 입력된 `boolean` 인자가 서로 같으면 true를 반환한다.
     - xor 메서드의 반대값
+
+## buffer 메서드 추가  
+
+논리회로의 buffer 역할을 수행하는 buffer 메서드를 추가했다.  
+
+- buffer 메서드
+  - 입력된 `boolean` 인자와 동일한 boolean 값을 반환한다.
 
 ---
