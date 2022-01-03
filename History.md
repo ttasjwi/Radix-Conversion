@@ -128,4 +128,11 @@ Adder 클래스에 byteAdd 메서드를 추가했다.
 
 - `int intExponentiation(int base, int exponent)` : base의 exponent 제곱을 반환함.
 
+### bin2dec 메서드 추가
+
+이진수(boolean 배열)를 십진수로 변환하는 bin2dec 메서드를 추가
+
+- bin2dex 메서드 : 이진수가 입력됐을 때 이를 십진수로 변환하여 반환함.
+  - 배열의 첫번째 인덱스부터 배열의 끝까지, 각 인덱스에 대응하는 2의 거듭제곱값을 누적함 (intExponentation 메서드 참조)
+  
 ---
