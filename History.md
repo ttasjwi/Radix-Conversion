@@ -75,3 +75,16 @@ LogicGate 클래스 : 논리게이트의 역할을 하는 메서드 모음.
   - 입력된 `boolean` 인자와 동일한 boolean 값을 반환한다.
 
 ---
+
+# Adder
+
+### Adder 클래스 생성, halfAdd 메서드 추가
+
+가산기 Adder 클래스를 생성 및, Adder에 halfAdd 메서드를 추가했다.
+
+- halfAdd 메서드
+  - 입력된 두 boolean 값에 대하여, 가산작업을 수행하여 `boolean` 배열로 다음의 결과를 저장해 반환한다.
+    - 결과의 0번째 인덱스에는 자리바꿈 (and 연산)
+    - 결과의 1번째 인덱스에는 합 결과 (xor 연산)
+
+---
