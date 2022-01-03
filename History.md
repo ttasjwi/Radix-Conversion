@@ -120,5 +120,12 @@ Adder 클래스에 byteAdd 메서드를 추가했다.
     - 배열의 길이를 한 단계 더 늘린다. (배열을 복제하여 한 단계 큰 배열로 참조를 변경한다.)
     - 2로 나눈 나머지를 판단하여 배열의 다음 인덱스에 추가
     - 2로 나눈 몫을 current에 저장한다.
-  
+
+
+### intExponentiation 메서드 추가
+
+정수의 거듭제곱꼴을 계산하는 메서드. Converter 클래스 내부적으로 사용하기 위하여 정의
+
+- `int intExponentiation(int base, int exponent)` : base의 exponent 제곱을 반환함.
+
 ---
