@@ -43,4 +43,13 @@ LogicGate 클래스 : 논리게이트의 역할을 하는 메서드 모음.
     - 두개의 boolean 인자가 모두 true일때 false가 반환됨.
     - 둘 중 적어도 하나의 인자가 false이면 true가 반환됨.
 
+### nor 메서드 추가  
+
+논리회로의 nor 역할을 수행하는 nor 메서드를 추가했다.  
+
+- nor 메서드
+  - 입력된 `boolean` 두개의 인자에 대하여 or 메서드의 결과값에 반대되는 `boolean` 값을 반환한다.
+  - 두개의 boolean 인자 중 적어도 하나가 true일때 false가 반환됨.
+  - 두개의 boolean 인자 모두 false 일 때 true가 반환됨.
+
 ---
