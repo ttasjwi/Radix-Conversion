@@ -18,16 +18,17 @@ public class Adder {
     }
 
     public static boolean[] fullAdd(boolean bitA, boolean bitB, boolean carryIn) {
-        boolean[] bitAddition = halfAdd(bitA, bitB);
-        boolean[] carryInAddition = halfAdd(bitAddition[1], carryIn);
+        boolean[] firstAddition = halfAdd(bitA, bitB); // 비트끼리의 연산
+        boolean firstCarryOut = firstAddition[0];
+        boolean firstSum = firstAddition[1];
 
-        boolean totalCarryOut = LogicGate.or(bitAddition[0], carryInAddition[0]); // carry(자리 올림)
-        boolean totalSum = carryInAddition[1]; // sum (합)
+        boolean[] secondAddition = halfAdd(firstSum, carryIn); // carryIn까지 연산
+        boolean secondCarryOut = secondAddition[0];
+        boolean secondSum = secondAddition[1];
 
-        boolean[] result = new boolean[2];
-        result[0] = totalCarryOut;
-        result[1] = totalSum;
-        return result;
+        boolean totalCarryOut = LogicGate.or(firstCarryOut, secondCarryOut); // 최종 carryOut (자리올림)
+        boolean totalSum = secondSum; // 최종 sum (합)
+        return new boolean[] {totalCarryOut, totalSum};
     }
 
     public static boolean[] byteAdd(boolean[] byteA, boolean[] byteB) {

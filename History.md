@@ -165,4 +165,9 @@ History.md의 기록별로 순서대로 숫자를 부여했다.
   - bitSum, bitCarryOut 값을, getBitSum, getBitCarryOut 메서드를 참조하도록 하였다.
   - 다른 메서드를 참조하도록 하였더니 코드가 간결해졌다.
 
+### (v 4.04) fullAdd 메서드 수정
+
+- fullAdd 메서드를 수정했다.
+  - 두번에 거친 halfAdd 결과물 각각에 대해 변수명을 붙여서 코드를 정리했다.
+
 ---
