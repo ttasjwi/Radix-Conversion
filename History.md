@@ -184,3 +184,20 @@ History.md의 기록별로 순서대로 숫자를 부여했다.
     - 배열의 길이가 최대인 것은 배열을 복사하지 않고 그대로 반환하도록 했다.
 
 ---
+
+# [Work 5] LogicGateTest
+
+### (v 5.01) LogicGateTest 클래스 추가, and_Test 메서드 추가
+
+LogicGate 클래스에 대한 테스트 메서드를 모아둔 LogicGateTest 클래스 및 and_Test 메서드를 추가했다.  
+gist에 업로드해야하다보니, 이용자 측에서 별도로 Junit5, AssertJ에 의존해야하는 문제점이 있다.  
+
+Project Structure에서, Libraries에
+> org.assertj:assertj-core:3.22.0  
+
+을 추가해야한다.
+
+- `andTest()`
+  - and게이트에 true, true가 입력됐을 때만 true가 반환되어야 한다.
+
+---
