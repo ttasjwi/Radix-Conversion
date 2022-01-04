@@ -200,4 +200,11 @@ Project Structure에서, Libraries에
 - `andTest()`
   - and게이트에 true, true가 입력됐을 때만 true가 반환되어야 한다.
 
+### (v 5.02) or_Test 메서드 추가
+
+or게이트의 테스트 메서드인 or_Test 메서드 추가
+
+- `or_Test()`
+  - or게이트에 false, false가 입력됐을 때만 true가 반환되어야 한다.
+
 ---
