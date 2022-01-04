@@ -32,22 +32,23 @@ public class Adder {
     }
 
     public static boolean[] byteAdd(boolean[] byteA, boolean[] byteB) {
-        if (byteA.length != byteB.length) { // 바이트 자릿수 통일
+        if (byteA.length != byteB.length) { // 자릿수 통일
             int maxLength = Math.max(byteA.length, byteB.length);
-            byteA = Arrays.copyOf(byteA, maxLength);
-            byteB = Arrays.copyOf(byteB, maxLength);
+            byteA = extendArray(byteA, maxLength);
+            byteB = extendArray(byteA, maxLength);
         }
-        boolean[] result = new boolean[byteA.length];
+        boolean[] result = new boolean[byteA.length+1];
         boolean carry = false;
-        for (int i=0; i<result.length; i++) {
+        for (int i=0; i<result.length-1; i++) {
             boolean[] fullAddition = fullAdd(byteA[i], byteB[i], carry);
             result[i] = fullAddition[1];
             carry = fullAddition[0];
         }
-        if (carry) { // 마지막 자리수에서 올림이 발생했을 때
-            result = Arrays.copyOf(result,result.length+1); // 한 자리 큰 배열 생성
-            result[result.length] = true;
-        }
+        result[result.length-1] = carry;
         return result;
+    }
+
+    public static boolean[] extendArray(boolean[] booleans, int length) {
+        return (booleans.length == length) ? booleans : Arrays.copyOf(booleans, length);
     }
 }
