@@ -2,48 +2,53 @@ import java.util.Arrays;
 
 public class Adder {
 
-    public static boolean[] halfAdd(boolean a, boolean b) {
-        boolean[] result = new boolean[2];
+    private static boolean getBitSum(boolean bitA, boolean bitB) {
+        return LogicGate.xor(bitA, bitB);
+    }
 
-        boolean carry = LogicGate.and(a,b); // carry (자리올림)
-        boolean sum = LogicGate.xor(a,b); // sum (합)
+    private static boolean getBitCarryOut(boolean bitA, boolean bitB) {
+        return LogicGate.and(bitA, bitB);
+    }
 
-        result[0] = carry;
-        result[1] = sum;
+    public static boolean[] halfAdd(boolean bitA, boolean bitB) {
+        boolean carryOut = getBitCarryOut(bitA, bitB); // 자리 올림
+        boolean sum = getBitSum(bitA,bitB);
 
-        return result;
+        return new boolean[] {carryOut, sum};
     }
 
     public static boolean[] fullAdd(boolean bitA, boolean bitB, boolean carryIn) {
-        boolean[] bitAddition = halfAdd(bitA, bitB);
-        boolean[] carryInAddition = halfAdd(bitAddition[1], carryIn);
+        boolean[] firstAddition = halfAdd(bitA, bitB); // 비트끼리의 연산
+        boolean firstCarryOut = firstAddition[0];
+        boolean firstSum = firstAddition[1];
 
-        boolean totalCarryOut = LogicGate.or(bitAddition[0], carryInAddition[0]); // carry(자리 올림)
-        boolean totalSum = carryInAddition[1]; // sum (합)
+        boolean[] secondAddition = halfAdd(firstSum, carryIn); // carryIn까지 연산
+        boolean secondCarryOut = secondAddition[0];
+        boolean secondSum = secondAddition[1];
 
-        boolean[] result = new boolean[2];
-        result[0] = totalCarryOut;
-        result[1] = totalSum;
-        return result;
+        boolean totalCarryOut = LogicGate.or(firstCarryOut, secondCarryOut); // 최종 carryOut (자리올림)
+        boolean totalSum = secondSum; // 최종 sum (합)
+        return new boolean[] {totalCarryOut, totalSum};
     }
 
     public static boolean[] byteAdd(boolean[] byteA, boolean[] byteB) {
-        if (byteA.length != byteB.length) { // 바이트 자릿수 통일
+        if (byteA.length != byteB.length) { // 자릿수 통일
             int maxLength = Math.max(byteA.length, byteB.length);
-            byteA = Arrays.copyOf(byteA, maxLength);
-            byteB = Arrays.copyOf(byteB, maxLength);
+            byteA = extendArray(byteA, maxLength);
+            byteB = extendArray(byteA, maxLength);
         }
-        boolean[] result = new boolean[byteA.length];
+        boolean[] result = new boolean[byteA.length+1];
         boolean carry = false;
-        for (int i=0; i<result.length; i++) {
+        for (int i=0; i<result.length-1; i++) {
             boolean[] fullAddition = fullAdd(byteA[i], byteB[i], carry);
             result[i] = fullAddition[1];
             carry = fullAddition[0];
         }
-        if (carry) { // 마지막 자리수에서 올림이 발생했을 때
-            result = Arrays.copyOf(result,result.length+1); // 한 자리 큰 배열 생성
-            result[result.length] = true;
-        }
+        result[result.length-1] = carry;
         return result;
+    }
+
+    public static boolean[] extendArray(boolean[] booleans, int length) {
+        return (booleans.length == length) ? booleans : Arrays.copyOf(booleans, length);
     }
 }
