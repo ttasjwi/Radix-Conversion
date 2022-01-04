@@ -6,6 +6,10 @@ public class Adder {
         return LogicGate.xor(bitA, bitB);
     }
 
+    private static boolean getBitCarryOut(boolean bitA, boolean bitB) {
+        return LogicGate.and(bitA, bitB);
+    }
+
     public static boolean[] halfAdd(boolean a, boolean b) {
         boolean[] result = new boolean[2];
 
