@@ -2,6 +2,10 @@ import java.util.Arrays;
 
 public class Adder {
 
+    private static boolean getBitSum(boolean bitA, boolean bitB) {
+        return LogicGate.xor(bitA, bitB);
+    }
+
     public static boolean[] halfAdd(boolean a, boolean b) {
         boolean[] result = new boolean[2];
 
