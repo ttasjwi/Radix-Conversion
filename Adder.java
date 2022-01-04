@@ -10,16 +10,11 @@ public class Adder {
         return LogicGate.and(bitA, bitB);
     }
 
-    public static boolean[] halfAdd(boolean a, boolean b) {
-        boolean[] result = new boolean[2];
+    public static boolean[] halfAdd(boolean bitA, boolean bitB) {
+        boolean carryOut = getBitCarryOut(bitA, bitB); // 자리 올림
+        boolean sum = getBitSum(bitA,bitB);
 
-        boolean carry = LogicGate.and(a,b); // carry (자리올림)
-        boolean sum = LogicGate.xor(a,b); // sum (합)
-
-        result[0] = carry;
-        result[1] = sum;
-
-        return result;
+        return new boolean[] {carryOut, sum};
     }
 
     public static boolean[] fullAdd(boolean bitA, boolean bitB, boolean carryIn) {
